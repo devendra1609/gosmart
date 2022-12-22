@@ -54,5 +54,18 @@ public class VehicleServiceImpl implements VehicleService {
 		}
 		return vehicles;
 	}
+	@Override
+	public VehicleEntity getVehicles1(Integer vehicleId) {
+		VehicleEntity vehicleEntity=null;
+		log.info("{}-ServiceImpl getVehicles1() started",VehicleConstants.VEHICLE);
+		try {
+			log.info("{}-ServiceImpl getVehicle()getting vehicles in repository",VehicleConstants.VEHICLE);
+			vehicleEntity=vehicleRepositary.findByVehicleId(vehicleId);
+		} catch (Exception e) {
+			log.error("{}-ServiceImpl-getVehicles()-exception occured-{}",VehicleConstants.VEHICLE,e.getMessage());
+			throw new GoSmartException(e.getMessage());
+		}
+		return vehicleEntity;
+	}
 
 }

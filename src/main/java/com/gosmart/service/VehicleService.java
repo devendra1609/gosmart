@@ -13,5 +13,5 @@ import com.gosmart.repository.entity.VehicleEntity;
 public interface VehicleService {
 	public Integer insertVehicle(VehicleEntity vehicleEntity);
 	public List<VehicleEntity> getVehicles(Integer vehicleTypeId);
-	
+	public VehicleEntity getVehicles1(Integer vehicleId);
 }

@@ -59,4 +59,23 @@ public class VehicleControllerTest {
 		ResponseEntity<List<VehicleEntity>> response=vehicleController.getVehicles(vehicleTyId);
 		assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
 	}
+	@Test
+	public void testGetVehicles1() throws Exception
+	{
+		Integer vehicleId=1;
+		VehicleEntity vehicleEntity=new VehicleEntity();
+		when(service.getVehicles1(vehicleId)).thenReturn(vehicleEntity);
+		ResponseEntity<VehicleEntity> response=vehicleController.getVehicles1(vehicleId);
+		assertEquals(HttpStatus.OK, response.getStatusCode());
+	}
+	@Test
+	public void testGetVehicles1_Exception() throws Exception
+	{
+		Integer vehicleId=1;
+		
+		when(service.getVehicles1(vehicleId)).thenThrow(NullPointerException.class);
+		ResponseEntity<VehicleEntity> response=vehicleController.getVehicles1(vehicleId);
+		assertEquals(HttpStatus.INTERNAL_SERVER_ERROR, response.getStatusCode());
+	}
+	
 }

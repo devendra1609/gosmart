@@ -60,4 +60,22 @@ public class VehicleServiceImplTest {
 		service.getVehicles(1);
 		
 	} 
+	@Test
+	public void testGetVehicles1() throws Exception
+	{
+		Integer vehicleId=1;
+		VehicleEntity vehicleEntity=new VehicleEntity();
+		VehicleEntity vehicleEntity2=Mockito.any();
+		when(repository.findByVehicleId(vehicleId)).thenReturn(vehicleEntity);
+		vehicleEntity=service.getVehicles1(vehicleId);
+		assertNotNull(vehicleEntity);
+	}
+	@Test(expected = GoSmartException.class)
+	public void testGetVehicles1_Exception() throws Exception
+	{
+		Integer vehicleId=1;
+		when(repository.findByVehicleId(vehicleId)).thenThrow(NullPointerException.class);
+		service.getVehicles1(vehicleId);
+		
+	}
 }

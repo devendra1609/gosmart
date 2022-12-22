@@ -39,11 +39,11 @@ public class VehicleEntity {
 	@Column(name="VEHICLE_DESCRIPTION")
 	private String vehicleDescription;
 	//created on of the vehicle
-	@Column(name="CREATED_ON")
-	private Date createdOn;
-	@Column(name="CREATED_BY")
+	@Column(name="VEHICLE_CREATED_ON")
+	private Date vehicleCreatedOn;
+	@Column(name="VEHICLE_CREATED_BY")
 	//created by of the vehicle
-	private Integer createdBy;
+	private Integer vehicleCreatedBy;
 	
 	
 	

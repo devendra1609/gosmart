@@ -9,5 +9,6 @@ import com.gosmart.repository.entity.VehicleEntity;
 @Repository
 public interface VehicleRepository extends JpaRepository<VehicleEntity, Integer>{
 	public List<VehicleEntity> findAllByVehicleTypeId(Integer vehicleTypeId);
+	public VehicleEntity findByVehicleId(Integer vehicleId);
 	
 }
